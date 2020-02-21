@@ -5,6 +5,7 @@ RUN apk add --no-cache git make openssl
 RUN git clone https://github.com/tutumcloud/ngrok.git /ngrok
 
 ADD *.sh /
+RUN chmod +x /*.sh
 
 ENV domain **None**
 ENV tunnelAddr :4443

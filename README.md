@@ -15,5 +15,5 @@ docker build -t backflow/ngrok .
 ```linux
 docker run -idt --name ngrok-server \
 -v /opt/ngrok:/ngrok/bin \
--e domain='ngrok.hunan.fit' backflow/ngrok /bin/sh /server.sh
+-e domain='ngrok.hunan.fit' backflow/docker-ngrok /bin/sh /server.sh
 ```

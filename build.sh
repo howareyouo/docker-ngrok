@@ -8,9 +8,9 @@ fi
 
 if [ ! -f "/ngrok/ca.pem" ]; then
     openssl genrsa -out ca.key 2048
-    openssl req -new -x509 -nodes -key ca.key -days 9999 -subj "/CN=${DOMAIN}" -out ca.pem
+    openssl req -new -x509 -nodes -key ca.key -days 9999 -subj "/CN=${domain}" -out ca.pem
     openssl genrsa -out device.key 2048
-    openssl req -new -key device.key -subj "/CN=${DOMAIN}" -out device.csr
+    openssl req -new -key device.key -subj "/CN=${domain}" -out device.csr
     openssl x509 -req -in device.csr -CA ca.pem -CAkey ca.key -CAcreateserial -days 9999 -out device.crt
 fi
 cp -r ca.pem /ngrok/assets/client/tls/ngrokroot.crt

@@ -1,5 +1,6 @@
 #!/bin/sh
 set -e
+cd /ngrok
 
 if [ "${domain}" == "**None**" ]; then
     echo "Please set 'domain' parameter"
@@ -13,9 +14,7 @@ if [ ! -f "/ngrok/ca.pem" ]; then
     openssl req -new -key device.key -subj "/CN=${domain}" -out device.csr
     openssl x509 -req -in device.csr -CA ca.pem -CAkey ca.key -CAcreateserial -days 9999 -out device.crt
 fi
-cp -r ca.pem /ngrok/assets/client/tls/ngrokroot.crt
 
-cd /ngrok
 make release-server
 GOOS=darwin GOARCH=386 make release-client
 GOOS=darwin GOARCH=amd64 make release-client

@@ -1,11 +1,15 @@
 server:
-  image: hteen/ngrok
+  image: backflow/ngrok-docker
+
   ports:
     - "8082:80"
     - "4432:443"
     - "4443:4443"
+
   volumes:
-    - /data/ngrok:/myfiles
+    - /opt/ngrok:/ngrok:ro
+
   environment:
-    - DOMAIN="tunnel.hteen.cn"
+    - domain="ngrok.hunan.fit"
+
   command: /bin/sh /server.sh

@@ -1,8 +1,7 @@
 FROM golang:alpine
-MAINTAINER hteen <i@hteen.cn>
+MAINTAINER backflow <hunan.me@gmail.com>
 
 RUN apk add --no-cache git make openssl
-
 RUN git clone https://github.com/tutumcloud/ngrok.git /ngrok
 
 ADD *.sh /
@@ -13,7 +12,7 @@ ENV httpAddr :80
 ENV httpsAddr :443
 
 EXPOSE 4443
-EXPOSE 80
 EXPOSE 443
+EXPOSE 80
 
 CMD /bin/sh

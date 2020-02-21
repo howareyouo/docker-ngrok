@@ -1,13 +1,13 @@
 #!/bin/sh
 set -e
 
-if [ "${DOMAIN}" == "**None**" ]; then
-    echo "Please set DOMAIN"
+if [ "${domain}" == "**None**" ]; then
+    echo "Please set 'domain' parameter, eg: '-domain=abc.com'"
     exit 1
 fi
 
 if [ ! -f "/ngrok/bin/ngrokd" ]; then
-    echo "ngrokd is not build,will be build it now..."
+    echo "ngrokd is not built, building it now..."
     /bin/sh /build.sh
 fi
 

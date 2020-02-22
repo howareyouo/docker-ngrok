@@ -1,9 +1,9 @@
 #!/bin/sh
-set -e
+set -ex
 cd /ngrok
 
-if [ "${domain}" == "**None**" ]; then
-    echo "Please set 'domain' parameter"
+if [ "${domain}" == "**none**" ]; then
+    echo "Please set 'domain' parameter, eg: '-domain=abc.com'"
     exit 1
 fi
 

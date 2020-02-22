@@ -7,7 +7,7 @@ RUN git clone https://github.com/tutumcloud/ngrok.git /ngrok
 ADD *.sh /
 RUN chmod +x /*.sh
 
-ENV domain **None**
+ENV domain **none**
 ENV tunnelAddr :4443
 ENV httpAddr :80
 ENV httpsAddr :443
